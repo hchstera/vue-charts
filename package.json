@@ -1,25 +1,43 @@
 {
-  "name": "hchs-vue-charts",
-  "version": "1.0.5",
-  "description": "Base on Vue2.0 wrapper for ChartJs. etc.",
-  "main": "vue-charts.js",
+  "name": "storybook-vue-example",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A demo of storybook for vue",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hchstera/vue-charts.git"
+    "url": "git+https://github.com/ndelangen/storybook-vue-example.git"
+  },
+  "dependencies": {
+    "chart.js": "^2.3.0",
+    "vue": "^2.4.1"
+  },
+  "devDependencies": {
+    "@storybook/cli": "alpha",
+    "@storybook/vue": "alpha",
+    "@storybook/addon-actions": "alpha",
+    "@storybook/addon-knobs": "alpha",
+    "@storybook/addon-links": "alpha",
+    "@storybook/addon-notes": "alpha",
+    "vue-loader": "^12.2.1",
+    "webpack": "^2.5.1"
   },
   "keywords": [
     "vue",
+    "vuejs",
     "chart",
     "chart.js",
-    "chartjs"
+    "chartjs",
+    "laravel"
   ],
-  "author": "hchstera",
+  "author": "ndelangen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hchstera/vue-charts/issues"
+    "url": "https://github.com/ndelangen/storybook-vue-example/issues"
   },
-  "homepage": "https://github.com/hchstera/vue-charts#readme"
+  "homepage": "https://github.com/ndelangen/storybook-vue-example#readme"
 }

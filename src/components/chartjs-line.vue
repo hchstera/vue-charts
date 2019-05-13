@@ -1,10 +1,12 @@
 <template>
-<canvas ref="canvas" :width="width" :height="height">
+    <div>
+        <canvas v-if="!target" ref="canvas" :width="width" :height="height"/>
+    </div>
 </template>
 <script>
 export default {
     mixins: [
-        vue_charts.default,
+        VueCharts.core.default,
     ],
     props: {
         beginzero:{
@@ -26,6 +28,22 @@ export default {
         pointbackgroundcolor: {
             type: String,
             default: () => "#fff",
+        },
+        pointhoverbackgroundcolor: {
+            type: String,
+            default: () => "rgba(75,192,192,1)",
+        },
+        pointhoverbordercolor: {
+            type: String,
+            default: () => "rgba(220,220,220,1)",
+        },
+        pointborderwidth: {
+            type: Number,
+            default: () => 1,
+        },
+        pointhoverborderwidth:{
+            type: Number,
+            default: () => 2,
         }
     },
     data() {
@@ -34,6 +52,7 @@ export default {
             chart_data: {
                 labels: this.labels,
                 datasets: [{
+                    type: 'line',
                     label: this.datalabel,
                     fill: this.fill,
                     lineTension:  this.linetension,
@@ -45,11 +64,11 @@ export default {
                     borderJoinStyle: 'miter',
                     pointBorderColor: this.pointbordercolor,
                     pointBackgroundColor: this.pointbackgroundcolor,
-                    pointBorderWidth: 1,
+                    pointBorderWidth: this.pointborderwidth,
                     pointHoverRadius: 5,
-                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
-                    pointHoverBorderColor: "rgba(220,220,220,1)",
-                    pointHoverBorderWidth: 2,
+                    pointHoverBackgroundColor: this.pointhoverbackgroundcolor,
+                    pointHoverBorderColor: this.pointhoverbordercolor,
+                    pointHoverBorderWidth: this.pointhoverborderwidth,
                     pointRadius: 1,
                     pointHitRadius: 10,
                     data: this.data,

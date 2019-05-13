@@ -1,18 +1,18 @@
 <template>
-<canvas ref="canvas" :width="width" :height="height">
+    <div>
+        <canvas v-if="!target" ref="canvas" :width="width" :height="height"/>
+    </div>
 </template>
 <script>
 export default {
     mixins: [
-        vue_charts.default,
+        VueCharts.core.default,
     ],
     props: {
         pointbordercolor: {
-            type: String,
             default: () => "#fff",
         },
         pointbackgroundcolor: {
-            type: String,
             default: () => "rgba(179,181,198,1)",
         }
     },

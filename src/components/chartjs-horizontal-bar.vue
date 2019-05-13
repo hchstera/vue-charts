@@ -1,25 +1,20 @@
 <template>
-<canvas ref="canvas" :width="width" :height="height">
+    <div>
+        <canvas v-if="!target" ref="canvas" :width="width" :height="height"/>
+    </div>
 </template>
 <script>
 export default {
     mixins: [
-        vue_charts.default,
+        VueCharts.core.default,
     ],
-    props: {
-        backgroundcolor:{
-            default: () => "rgba(75,192,192,0.4)",
-        },
-        bordercolor: {
-            default: () => "rgba(75,192,192,1)",
-        },
-    },
     data() {
         return {
-            type: 'bar',
+            type: 'horizontalBar',
             chart_data: {
                 labels: this.labels,
                 datasets: [{
+                    type: 'horizontalBar',
                     label: this.datalabel,
                     backgroundColor: this.backgroundcolor,
                     borderColor: this.bordercolor,
@@ -27,6 +22,16 @@ export default {
                     data: this.data,
                 }, ],
             },
+            options: {
+                scales: {
+                    yAxes: [{
+                        stacked: false
+                    }],
+                    xAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
         };
     },
 }
