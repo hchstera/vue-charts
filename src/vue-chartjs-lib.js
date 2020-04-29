@@ -103,6 +103,7 @@ export default{
                 if(this.isDatasetsOverride&&this.bind)
                 {
                     this.cleanChart();
+                    this.chart_data.datasets = val;
                     this.sleep(5).then(() => {
                         this.renderChart();
                     })
