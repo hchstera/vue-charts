@@ -13,7 +13,11 @@ export default {
             type: Boolean,
             default: false,
         },
-        fill:{
+        fill: {
+            type: Boolean,
+            default: false,
+        },
+        hidden: {
             type: Boolean,
             default: false,
         },
@@ -73,6 +77,7 @@ export default {
                     pointHitRadius: 10,
                     data: this.data,
                     spanGaps: false,
+                    hidden: this.hidden,
                 }, ],
             },
         };
